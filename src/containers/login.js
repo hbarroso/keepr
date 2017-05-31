@@ -6,7 +6,7 @@ import { Container, Header } from 'semantic-ui-react'
 class Login extends Component {
 
   render() {
-    const { from } = { from: { pathname: '/' } }
+    const { from } =this.props.location.state || { from: { pathname: '/' } }
     const isAuthenticated = this.props.state.auth.token !== null
 
     if (isAuthenticated) {

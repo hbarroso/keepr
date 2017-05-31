@@ -1,50 +1,32 @@
 import * as types from '../constants/ActionTypes'
+import _ from 'lodash'
 
-const initalList = [
-  {
-    id: 1,
-    name: "My first list",
-    items: [
-      {
-        id: 1,
-        name: "task 1",
-        completed: false
-      },
-      {
-        id: 2,
-        name: "task 2",
-        completed: false
-      },
-      {
-        id: 3,
-        name: "task 3",
-        completed: false
-      }
-    ]
-  },
-  {
-    id: 2,
-    name: "My second list",
-    items: [
-      {
-        id: 1,
-        name: "task 1",
-        completed: false
-      },
-      {
-        id: 2,
-        name: "task 2",
-        completed: false
-      }
-    ]
-  }
-]
-
-export function lists(state = initalList, action) {
+export function lists(lists = [], action) {
   switch(action.type) {
-    case types.AUTH_STATE_CHANGED:
-      return state
+    case types.FETCH_LISTS: {
+      return _.map(action.payload, (obj, key) => {
+        return {
+          id: key,
+          name: obj.name,
+          items: []
+        }
+      })
+    }
     default:
-      return state
+      return lists
+  }
+}
+
+export function selectedList(selectedList = null, action) {
+  switch(action.type) {
+    case types.GET_LIST: {
+      return {
+        id: 1234,
+        name: 'asdasdasd',
+        items: []
+      }
+    }
+    default:
+      return selectedList
   }
 }

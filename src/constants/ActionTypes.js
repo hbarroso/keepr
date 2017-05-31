@@ -1,4 +1,6 @@
 export const AUTH_STATE_CHANGED = 'AUTH_STATE_CHANGED'
+export const FETCH_LISTS = 'FETCH_LISTS'
+export const GET_LIST = 'GET_LIST'
 export const ADD_LIST = 'ADD_LIST'
 export const REMOVE_LIST = 'REMOVE_LIST'
 export const ADD_TODO = 'ADD_TODO'

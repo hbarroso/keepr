@@ -10,6 +10,6 @@ let config = {
 }
 
 export const firebaseApp = firebase.initializeApp(config)
-export const db = firebase.database()
+export const database = firebase.database()
 export const auth = firebase.auth()
 export const googleProvider = new firebase.auth.GoogleAuthProvider()

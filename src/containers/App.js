@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
 import { Container } from 'semantic-ui-react'
 import * as authActions from '../actions/auth'
 import Header from '../components/header'
@@ -38,8 +38,11 @@ class App extends Component {
             logoutAction={this.props.actions.logout}
           />
           <Container >
-            <Route exact path="/login" component={Login}/>
-            <PrivateRoute path="/" component={Lists} authed={authed}/>
+            <Switch>
+              <Route exact path="/login" component={Login}/>
+                <PrivateRoute path="/:id" component={Lists} authed={authed}/>
+              <PrivateRoute path="/" component={Lists} authed={authed}/>
+            </Switch>
           </Container>
         </div>
       </Router>
